@@ -19,12 +19,20 @@ using namespace std;
 #define ll_to_string(n) to_string(n)
 #define char_to_int(c) c-'0'
 #define int_to_char(c) c+'0'
+#define to_uppercase(s) transform(all(s), s.begin(), ::toupper)
+#define to_lowercase(s) transform(all(s), s.begin(), ::tolower)
+//#define TEST
 
 int main() {
 
-	
+	#ifdef TEST
+		freopen("input.txt", 'r', stdin);
+		freopen("output.txt", 'w', stdout);
+	#endif
+
+
+
 
 
 	return 0;
 }
-
