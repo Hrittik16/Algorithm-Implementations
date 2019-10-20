@@ -4,8 +4,8 @@
 	Using property nCr = (n-1)Cr + (n-1)C(r-1) we get time limit excedeed
 	So, since r, n <= 100 we can simplify the expansion of nCr i.e., 
 	nCr = n!/((n-r)! r!)
-	Simplifying we can get in numerator n*(n-1)*(n-2)*...*max(r, n-r) and in
-	denominator we can get min(r, n-r) * min(r, n-r)-1 *...*3*2*1
+	Simplifying we can get numerator n*(n-1)*(n-2)*...*max(r, n-r)-1 and
+	denominator min(r, n-r) * min(r, n-r)-1 *...*3*2*1
 	We can store numerator and denominator in vectors and then divide individual
 	elements in denominator to elements in numerator
 
