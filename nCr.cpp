@@ -1,5 +1,5 @@
 /*
-	Prob: Find nCr where r <= n <= 100
+	Prob: Find nCr where 1 <= r <= n <= 100
 	Solution: 
 	Using property nCr = (n-1)Cr + (n-1)C(r-1) we get time limit excedeed
 	So, since r, n <= 100 we can simplify the expansion of nCr i.e., 
