@@ -29,7 +29,13 @@ int main() {
 		g[x].pb(y);
 		g[y].pb(x);
 	}
-	dfs(g, visited, 1);
+	int total_d_components = 0;
+	for(int i = 1; i <= e; i++) {
+		if(!visited[i])
+			dfs(g, visited, i), total_d_components++;
+	}
+	
+	cout << "\nTotal Number of Disconnected Components = " << total_d_components << "\n";
 
 	return 0;
 }
