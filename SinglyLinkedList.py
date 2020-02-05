@@ -1,7 +1,6 @@
+# Singly Linked List in python3
 # Create a node
 # Add it to the LinkedList
-
-# print("Hello World")
 
 class Node:
 	def __init__(self, data):
