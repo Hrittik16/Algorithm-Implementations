@@ -21,6 +21,8 @@ class LinkedList:
 			temp.next = newNode
 	def PrintLinkedList(self):
 		temp = self.head
+		if temp is None:
+			print("List is empty!")
 		while temp is not None:
 			print(temp.data + " ")
 			temp = temp.next
