@@ -10,12 +10,9 @@ class LinkedList:
 		self.head = None
 	
 	def InsertNodeAtHead(self, newNode):
-		if self.head is None:
-			self.head = newNode
-		else:
-			temp = self.head
-			self.head = newNode
-			newNode.next = temp
+		temp = self.head
+		self.head = newNode
+		newNode.next = temp
 
 	def InsertNodeAtTail(self, newNode):
 		if self.head is None:
