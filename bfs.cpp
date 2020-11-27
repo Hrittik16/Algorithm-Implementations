@@ -3,14 +3,14 @@ using namespace std;
 
 vector<int> adj[100007];
 
-void bfs(int n, int s) {
+void bfs(int n, int source, int destination) {
 	queue<int> q;
 	vector<bool> visited(n + 1);
 	vector<int> p(n + 1), d(n + 1);
 
-	q.push(s);
-	visited[s] = true;
-	p[s] = -1;
+	q.push(source);
+	visited[source] = true;
+	p[source] = -1;
 
 	while (!q.empty()) {
 		int u = q.front();
@@ -23,6 +23,21 @@ void bfs(int n, int s) {
 				d[x] = d[u] + 1;
 			}
 		}
+	}
+
+	// Printing Shortest Path
+	if (!visited[destination])
+		cout << "No Path! \n";
+	else {
+		vector<int> path;
+		for (int i = destination; i != -1; i = p[i]) {
+			path.push_back(i);
+		}
+		reverse(path.begin(), path.end());
+		cout << "Path is : ";
+		for (auto i : path)
+			cout << i << " ";
+		cout << "\n";
 	}
 
 }
@@ -39,7 +54,7 @@ int main() {
 		adj[y].push_back(x);
 	}
 
-	bfs(n, 1);
+	bfs(n, 2, 3);
 
 
 	return 0;
