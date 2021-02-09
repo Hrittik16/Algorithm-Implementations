@@ -1,8 +1,8 @@
 /*
 	Prob: Find nCr where 1 <= r <= n <= 100
-	Solution: 
+	Solution:
 	Using property nCr = (n-1)Cr + (n-1)C(r-1) we get time limit excedeed
-	So, since r, n <= 100 we can simplify the expansion of nCr i.e., 
+	So, since r, n <= 100 we can simplify the expansion of nCr i.e.,
 	nCr = n!/((n-r)! r!)
 	Simplifying we can get numerator n*(n-1)*(n-2)*...*max(r, n-r)-1 and
 	denominator min(r, n-r) * min(r, n-r)-1 *...*3*2*1
@@ -20,8 +20,8 @@ using namespace std;
 #define pll pair<ll, ll>
 #define vpii vector< pii >
 #define vpll vector< pll >
-#define rep(i, a, b) for(int i = a; i < b; i++) 
-#define repll(i, a, b) for(ll i = a; i < b; i++) 
+#define rep(i, a, b) for(int i = a; i < b; i++)
+#define repll(i, a, b) for(ll i = a; i < b; i++)
 #define all(a) (a).begin(),(a).end()
 #define pb push_back
 #define F first
@@ -37,33 +37,33 @@ using namespace std;
 //#define test
 
 int main() {
-	
-	#ifdef test
-		freopen("input.txt", "r", stdin);
-		freopen("output.txt", "w", stdout);
-	#endif
+
+#ifdef test
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+#endif
 
 	ll n, r;
 	cin >> n >> r;
-	while(n != 0 && r != 0) {
-		ll mn = min(r, n-r);
-		ll mx = max(r, n-r);
+	while (n != 0 && r != 0) {
+		ll mn = min(r, n - r);
+		ll mx = max(r, n - r);
 		vl a, b;
-		for(ll i = n; i > mx; i--) a.pb(i);
-		for(ll j = mn; j > 1; j--) b.pb(j);
+		for (ll i = n; i > mx; i--) a.pb(i);
+		for (ll j = mn; j > 1; j--) b.pb(j);
 		ll flag = 1, prod = 1;
-			for(ll i = 0; i < b.size(); i++) {
-				for(ll j = 0; j < a.size(); j++) {
-					if(a[j]%b[i] == 0 && a[j] != 1 && b[i] != 1) {
-						a[j] = a[j]/b[i];
-						b[i] = 1;
-						break;
-					}
+		for (ll i = 0; i < b.size(); i++) {
+			for (ll j = 0; j < a.size(); j++) {
+				if (a[j] % b[i] == 0 && a[j] != 1 && b[i] != 1) {
+					a[j] = a[j] / b[i];
+					b[i] = 1;
+					break;
 				}
 			}
+		}
 
-		for(ll k = 0; k < a.size(); k++) prod *= a[k];
-		for(ll l = 0; l < b.size(); l++) prod /= b[l]; 
+		for (ll k = 0; k < a.size(); k++) prod *= a[k];
+		for (ll l = 0; l < b.size(); l++) prod /= b[l];
 
 		cout << n << " things taken " << r << " at a time is " << prod << " exactly.\n";
 		cin >> n >> r;

@@ -47,6 +47,16 @@ int query(int idx, int beg, int end, int l, int r) {
 	return max(query(2 * idx + 1, beg, mid, l, r), query(2 * idx + 2, mid + 1, end, l, r));
 }
 
+void update(int idx, int beg, int end, int pos, int val) {
+	if (beg == end) seg[idx] = val;
+	else {
+		int mid = (beg + end) / 2;
+		if (pos <= mid) update(2 * idx + 1, beg, mid, pos, val);
+		else update(2 * idx + 2, mid + 1, end, pos, val);
+		seg[idx] = seg[2 * idx + 1] + seg[2 * idx + 2];
+	}
+}
+
 int32_t main() {
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
